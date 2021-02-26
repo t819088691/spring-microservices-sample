@@ -33,7 +33,7 @@ spec:
         version: master-$BUILD_NUMBER
     spec:
       containers:
-        - image: t819088691/demo/config-sample:latest
+        - image: 192.168.23.157/demo/config-sample:latest
           readinessProbe:
             httpGet:
               path: /actuator/health
@@ -67,8 +67,8 @@ spec:
               memory: 100Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-      imagePullSecrets: 
-      - name: mydockerhub
+#      imagePullSecrets: 
+#     - name: mydockerhub
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       terminationGracePeriodSeconds: 30

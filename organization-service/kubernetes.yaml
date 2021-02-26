@@ -50,7 +50,7 @@ spec:
               until nc -z eureka-sample 8761; do echo "waiting for
                             eureka"; sleep 2; done;
       containers:
-        - image: t819088691/organization-sample:latest
+        - image: 192.168.23.156/demo/organization-sample:latest
           readinessProbe:
             httpGet:
               path: /actuator/health
@@ -88,8 +88,8 @@ spec:
               memory: 100Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-      imagePullSecrets: 
-      - name: mydockerhub
+#      imagePullSecrets: 
+#      - name: mydockerhub
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       terminationGracePeriodSeconds: 30

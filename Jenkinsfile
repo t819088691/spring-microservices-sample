@@ -34,22 +34,22 @@ pipeline {
            steps{
                 container ('maven') {
                     withCredentials([usernamePassword(passwordVariable : 'DOCKER_PASSWORD' ,usernameVariable : 'DOCKER_USERNAME' ,credentialsId : "$DOCKER_CREDENTIAL_ID" ,)]) {
-                        sh 'echo "$DOCKER_PASSWORD" | docker login $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
+                        sh 'echo "$DOCKER_PASSWORD" | docker login 192.168.23.157 $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
                         sh '''
-                        docker tag config-sample:latest       t819088691/config-sample:latest
-                        docker tag department-sample:latest   t819088691/department-sample:latest
-                        docker tag eureka-sample:latest       t819088691/eureka-sample:latest
-                        docker tag employee-sample:latest     t819088691/employee-sample:latest
-                        docker tag gateway-sample:latest      t819088691/gateway-sample:latest
-                        docker tag organization-sample:latest t819088691/organization-sample:latest
-                        docker tag proxy-sample:latest        t819088691/proxy-sample:latest
-                        docker push t819088691/config-sample:latest
-                        docker push t819088691/department-sample:latest
-                        docker push t819088691/eureka-sample:latest
-                        docker push t819088691/employee-sample:latest
-                        docker push t819088691/organization-sample:latest
-                        docker push t819088691/proxy-sample:latest
-                        docker push t819088691/gateway-sample:latest
+                        docker tag config-sample:latest       192.168.23.157/demo/config-sample:latest
+                        docker tag department-sample:latest   192.168.23.157/demo/department-sample:latest
+                        docker tag eureka-sample:latest       192.168.23.157/demo/eureka-sample:latest
+                        docker tag employee-sample:latest     192.168.23.157/demo/employee-sample:latest
+                        docker tag gateway-sample:latest      192.168.23.157/demo/gateway-sample:latest
+                        docker tag organization-sample:latest 192.168.23.157/demo/organization-sample:latest
+                        docker tag proxy-sample:latest        192.168.23.157/demo/proxy-sample:latest
+                        docker push 192.168.23.157/demo/config-sample:latest
+                        docker push 192.168.23.157/demo/department-sample:latest
+                        docker push 192.168.23.157/demo/eureka-sample:latest
+                        docker push 192.168.23.157/demo/employee-sample:latest
+                        docker push 192.168.23.157/demo/organization-sample:latest
+                        docker push 192.168.23.157/demo/proxy-sample:latest
+                        docker push 192.168.23.157/demo/gateway-sample:latest
                         '''
                     }
                 }

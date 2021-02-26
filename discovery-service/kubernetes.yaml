@@ -43,7 +43,7 @@ spec:
                             config"; sleep 2; done;
       containers:
         - name: eureka
-          image: t819088691/eureka-sample:latest
+          image: 192.168.23.157/demo/eureka-sample:latest
           ports:
             - containerPort: 8761
           resources:
@@ -86,5 +86,5 @@ spec:
             initialDelaySeconds: 360
             periodSeconds: 10
             timeoutSeconds: 5
-      imagePullSecrets: 
-      - name: mydockerhub
+#      imagePullSecrets: 
+#      - name: mydockerhub
