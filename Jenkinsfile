@@ -16,13 +16,13 @@ pipeline {
             steps {
                 container ('maven') {
                     sh 'mvn clean package'
-                    sh 'cd config-service &&  docker build -t t819088691/config-sample:latest .'
-                    sh 'cd department-service &&  docker build -t t819088691/department-sample:latest .'
-                    sh 'cd discovery-service &&  docker build -t t819088691/eureka-sample:latest .'
-                    sh 'cd employee-service &&  docker build -t t819088691/employee-sample:latest .'
-                    sh 'cd gateway-service &&  docker build -t t819088691/gateway-sample:latest .'
-                    sh 'cd organization-service &&  docker build -t t819088691/organization-sample:latest .'
-                    sh 'cd proxy-service &&  docker build -t t819088691/proxy-sample:latest .'
+                    sh 'cd config-service &&  docker build -t t819088691/demo/config-sample:latest .'
+                    sh 'cd department-service &&  docker build -t t819088691/demo/department-sample:latest .'
+                    sh 'cd discovery-service &&  docker build -t t819088691/demo/eureka-sample:latest .'
+                    sh 'cd employee-service &&  docker build -t t819088691/demo/employee-sample:latest .'
+                    sh 'cd gateway-service &&  docker build -t t819088691/demo/gateway-sample:latest .'
+                    sh 'cd organization-service &&  docker build -t t819088691/demo/organization-sample:latest .'
+                    sh 'cd proxy-service &&  docker build -t t819088691/demo/proxy-sample:latest .'
                 }
             }
         }
@@ -36,13 +36,13 @@ pipeline {
                     withCredentials([usernamePassword(passwordVariable : 'DOCKER_PASSWORD' ,usernameVariable : 'DOCKER_USERNAME' ,credentialsId : "$DOCKER_CREDENTIAL_ID" ,)]) {
                         sh 'echo "$DOCKER_PASSWORD" | docker login $REGISTRY -u "$DOCKER_USERNAME" --password-stdin'
                         sh '''
-                        docker push t819088691/config-sample:latest
-                        docker push t819088691/department-sample:latest
-                        docker push t819088691/eureka-sample:latest
-                        docker push t819088691/employee-sample:latest
-                        docker push t819088691/organization-sample:latest
-                        docker push t819088691/proxy-sample:latest
-                        docker push t819088691/gateway-sample:latest
+                        docker push t819088691/demo/config-sample:latest
+                        docker push t819088691/demo/department-sample:latest
+                        docker push t819088691/demo/eureka-sample:latest
+                        docker push t819088691/demo/employee-sample:latest
+                        docker push t819088691/demo/organization-sample:latest
+                        docker push t819088691/demo/proxy-sample:latest
+                        docker push t819088691/demo/gateway-sample:latest
                         '''
                     }
                 }
